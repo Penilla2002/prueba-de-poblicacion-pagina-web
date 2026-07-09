@@ -9,6 +9,10 @@
       box-sizing: border-box;
     }
 
+    * {
+      min-width: 0;
+    }
+
     html,
     body {
       margin: 0;
@@ -21,7 +25,7 @@
     body {
       display: grid;
       place-items: start center;
-      padding: 6px;
+      padding: clamp(0px, 1.2vw, 10px);
     }
 
     .page {
@@ -33,11 +37,11 @@
 
     .topbar {
       display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      gap: 2px;
+      grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+      gap: 2px 4px;
       align-items: center;
       min-height: 33px;
-      padding: 0 72px;
+      padding: 6px clamp(8px, 8vw, 72px);
       background: #06381e;
       color: #fff;
       font-size: 9px;
@@ -47,10 +51,10 @@
 
     .hero {
       position: relative;
-      min-height: 250px;
+      min-height: clamp(210px, 31vw, 250px);
       display: grid;
       place-items: center;
-      padding: 42px 76px 22px;
+      padding: clamp(30px, 5vw, 42px) clamp(18px, 9vw, 76px) 22px;
       overflow: hidden;
       color: #fff;
       text-align: center;
@@ -142,7 +146,7 @@
 
     .section {
       margin: 5px;
-      padding: 18px 22px;
+      padding: clamp(13px, 2.8vw, 18px) clamp(14px, 3.2vw, 22px);
       border: 1px solid #ccd6cb;
       border-radius: 6px;
       background: #fff;
@@ -150,24 +154,28 @@
 
     .intro {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(10px, 2.8vw, 22px);
       padding: 0;
       overflow: hidden;
     }
 
     .intro-text {
       display: grid;
-      grid-template-columns: 50px 1fr;
+      grid-template-columns: auto 1fr;
       gap: 12px;
-      padding: 21px;
+      padding: clamp(15px, 3vw, 21px);
       align-items: start;
     }
 
     .photo {
+      width: 100%;
+      max-width: 100%;
       min-height: 154px;
+      aspect-ratio: 2.6 / 1;
       background-position: center;
       background-size: cover;
+      border-radius: 2px;
     }
 
     .photo.frontera {
@@ -175,17 +183,23 @@
     }
 
     .photo.diagnostico {
-      min-height: 82px;
+      height: 58px;
+      min-height: 0;
+      margin-top: 8px;
+      aspect-ratio: auto;
       background-image: url("assets/diagnostico-photo.png");
     }
 
     .photo.limpieza {
-      min-height: 94px;
+      height: 46px;
+      min-height: 0;
+      margin-top: 8px;
+      aspect-ratio: auto;
       background-image: url("assets/limpieza-photo.png");
     }
 
     .photo.calle {
-      min-height: 149px;
+      display: none;
       background-image: url("assets/calle-photo.png");
     }
 
@@ -204,9 +218,10 @@
     h3 {
       margin: 0 0 12px;
       color: #16355a;
-      font-size: 18px;
+      font-size: clamp(16px, 2.1vw, 18px);
       line-height: 1.15;
       text-transform: uppercase;
+      overflow-wrap: anywhere;
     }
 
     h4 {
@@ -237,7 +252,7 @@
 
     .problem {
       display: grid;
-      grid-template-columns: 235px 1fr;
+      grid-template-columns: minmax(190px, 235px) minmax(0, 1fr);
       gap: 10px;
       padding-top: 13px;
     }
@@ -294,7 +309,7 @@
     }
 
     .center-badge {
-      width: 176px;
+      width: min(176px, 100%);
       aspect-ratio: 1;
       display: grid;
       place-items: center;
@@ -401,15 +416,15 @@
     }
 
     .three-cols {
-      grid-template-columns: 1fr 1.15fr 1.3fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .lower-grid {
-      grid-template-columns: 1fr 1.1fr 1.2fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .bottom-grid {
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
     }
 
     .card {
@@ -417,6 +432,7 @@
       border: 1px solid #ccd6cb;
       border-radius: 6px;
       background: #fff;
+      overflow: hidden;
     }
 
     .card.blue {
@@ -425,7 +441,7 @@
 
     .with-icon-title {
       display: grid;
-      grid-template-columns: 48px 1fr;
+      grid-template-columns: 40px 1fr;
       gap: 10px;
       align-items: start;
     }
@@ -434,7 +450,7 @@
       display: grid;
       place-items: center;
       color: #0c6b99;
-      font-size: 37px;
+      font-size: 32px;
       font-weight: 900;
     }
 
@@ -452,7 +468,7 @@
 
     .tech-list {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
       gap: 9px;
     }
 
@@ -476,6 +492,7 @@
       border-collapse: collapse;
       margin: 5px 0 9px;
       text-align: center;
+      table-layout: fixed;
     }
 
     th {
@@ -505,6 +522,11 @@
       margin-bottom: 8px;
     }
 
+    a {
+      color: #0b5f73;
+      overflow-wrap: anywhere;
+    }
+
     .check {
       display: grid;
       place-items: center;
@@ -519,8 +541,8 @@
 
     .results {
       display: grid;
-      grid-template-columns: 1fr 91px;
-      gap: 10px;
+      grid-template-columns: 1fr;
+      gap: 0;
     }
 
     .footer {
@@ -528,12 +550,13 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       min-height: 23px;
-      padding: 0 12px;
+      padding: 5px 12px;
       background: #06381e;
       color: #fff;
       font-size: 9px;
       font-weight: 700;
       text-align: center;
+      gap: 8px;
     }
 
     .leaf {
@@ -541,6 +564,30 @@
       height: 19px;
       border-radius: 50% 0 50% 50%;
       background: #78bd51;
+    }
+
+    @media (max-width: 900px) {
+      .problem,
+      .three-cols,
+      .lower-grid,
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .diagram {
+        grid-template-columns: minmax(155px, 1fr) 176px minmax(155px, 1fr);
+      }
+
+      .photo.diagnostico,
+      .photo.limpieza {
+        height: 95px;
+        min-height: 0;
+      }
+
+      .photo.calle {
+        display: none;
+        min-height: 0;
+      }
     }
 
     @media (max-width: 760px) {
@@ -561,7 +608,7 @@
       }
 
       .topbar {
-        padding: 8px;
+        padding: 8px 10px;
         gap: 7px;
       }
 
@@ -576,13 +623,87 @@
       .objective {
         margin-inline: 5px;
       }
+
+      .center-badge {
+        justify-self: center;
+      }
+
+      .footer {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        border-inline: 0;
+        box-shadow: none;
+      }
+
+      .topbar {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        font-size: 8px;
+      }
+
+      .hero {
+        min-height: 230px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      .hero h2 {
+        font-size: 19px;
+      }
+
+      .hero p {
+        font-size: 13px;
+      }
+
+      .intro,
+      .intro-text,
+      .with-icon-title,
+      .tech-item,
+      .mini-card,
+      .solutions-items div {
+        grid-template-columns: 1fr;
+      }
+
+      .circle-icon,
+      .big-symbol,
+      .mini-card .icon,
+      .tech-icon {
+        justify-self: center;
+      }
+
+      .solutions-items {
+        grid-template-columns: 1fr;
+      }
+
+      .solutions-items div {
+        border-right: 0;
+        border-bottom: 1px solid #bdd3b8;
+      }
+
+      .solutions-items div:last-child {
+        border-bottom: 0;
+      }
+
+      .card {
+        padding: 13px;
+      }
+
+      th,
+      td {
+        padding: 6px 4px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="page">
     <nav class="topbar" aria-label="Navegaci&oacute;n principal">
-      
+     
     </nav>
 
     <header class="hero">
@@ -768,10 +889,10 @@
       <article class="card" id="referencias">
         <h3>11. Referencias</h3>
         <ul>
-          <li>Morroy Fern&aacute;ndez de Lara, J. (2014). Sistemas de alcantarillado sanitario. UNAM.</li>
-          <li>M&aacute;rquez Garc&iacute;a, E. et al. (2007). Dise&ntilde;o y construcci&oacute;n de sistemas de alcantarillado. UNAM.</li>
-          <li>Oliva Lara, M. (2000). Alcantarillado sanitario. UNAM.</li>
-          <li>Navarro Salazar, J. (2018). Proyecto integral para el abastecimiento de agua potable, alcantarillado sanitario y tratamiento de aguas residuales en la localidad Zacualpan de Carmen S&aacute;nchez, Veracruz. UNAM.</li>
+          <li>M&aacute;rquez Garc&iacute;a, C. O., Navarrete &Aacute;valos, J. C., &amp; Ram&iacute;rez Mendienta, X. A. (2007). Proyecto del sistema de alcantarillado sanitario para la comunidad rural de Dexthi [Tesis de licenciatura, Universidad Nacional Aut&oacute;noma de M&eacute;xico]. Repositorio UNAM. <a href="https://ru.dgb.unam.mx/items/e4d797b3-d6d3-47a2-a3f3-5b1335d7c01d">https://ru.dgb.unam.mx/items/e4d797b3-d6d3-47a2-a3f3-5b1335d7c01d</a></li>
+          <li>Oliva Lara, S. (2000). Proceso constructivo del sistema de alcantarillado sanitario de la comunidad de San Sim&oacute;n en Texcoco, Edo. de M&eacute;xico [Tesis de licenciatura, Universidad Nacional Aut&oacute;noma de M&eacute;xico]. Repositorio UNAM. <a href="https://repositorio.unam.mx/contenidos/3458626">https://repositorio.unam.mx/contenidos/3458626</a></li>
+          <li>Huerta Ramos, J. E. (1955). Proyecto del sistema de alcantarillado para la poblaci&oacute;n de Villa Frontera, Coah. [Tesis de licenciatura, Universidad Nacional Aut&oacute;noma de M&eacute;xico]. Repositorio UNAM. <a href="https://ru.dgb.unam.mx/items/4b8b51a7-4df5-4fdd-83f7-d236b103ff97">https://ru.dgb.unam.mx/items/4b8b51a7-4df5-4fdd-83f7-d236b103ff97</a></li>
+          <li>Navarro Salazar, J. (2013). Proyecto integral para el abastecimiento de agua potable, alcantarillado sanitario y tratamiento de aguas residuales en la localidad Zacualpan de Carmen S&aacute;nchez, Veracruz [Tesis de licenciatura, Universidad Nacional Aut&oacute;noma de M&eacute;xico]. Repositorio UNAM. <a href="https://ru.dgb.unam.mx/items/03eb46d0-01b9-4e46-8103-cd38460c4cae">https://ru.dgb.unam.mx/items/03eb46d0-01b9-4e46-8103-cd38460c4cae</a></li>
         </ul>
       </article>
     </section>
