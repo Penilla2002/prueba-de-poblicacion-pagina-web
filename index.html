@@ -183,19 +183,25 @@
     }
 
     .photo.diagnostico {
-      height: 58px;
+      height: 86px;
       min-height: 0;
       margin-top: 8px;
       aspect-ratio: auto;
+      background-color: #f7faf7;
       background-image: url("assets/diagnostico-photo.png");
+      background-repeat: no-repeat;
+      background-size: contain;
     }
 
     .photo.limpieza {
-      height: 46px;
+      height: 82px;
       min-height: 0;
       margin-top: 8px;
       aspect-ratio: auto;
+      background-color: #f7faf7;
       background-image: url("assets/limpieza-photo.png");
+      background-repeat: no-repeat;
+      background-size: contain;
     }
 
     .photo.calle {
@@ -309,46 +315,15 @@
     }
 
     .center-badge {
-      width: min(176px, 100%);
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      padding: 18px 13px 12px;
-      border: 2px solid #1c344b;
-      border-radius: 50%;
-      text-align: center;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 78%, #5eb9d7 0 11%, transparent 12%),
-        linear-gradient(#f9fbfb 0 67%, #a6b487 68% 80%, #d2d0c5 81%);
+      width: min(190px, 100%);
+      justify-self: center;
     }
 
-    .center-badge p {
+    .center-badge img {
+      display: block;
       width: 100%;
-      margin: 0;
-      color: #123426;
-      font-size: 9px;
-      line-height: 1.18;
-      font-weight: 900;
-    }
-
-    .center-badge strong {
-      display: block;
-      color: #173a6a;
-      font-size: 15px;
-      line-height: 0.98;
-      text-transform: uppercase;
-    }
-
-    .center-badge em {
-      display: block;
-      color: #17854d;
-      margin: 3px 0 2px;
-      font-size: 15px;
-      line-height: 1;
-      font-style: normal;
-      font-weight: 900;
-      text-transform: uppercase;
+      height: auto;
+      border-radius: 6px;
     }
 
     .solutions-strip {
@@ -580,7 +555,7 @@
 
       .photo.diagnostico,
       .photo.limpieza {
-        height: 95px;
+        height: 130px;
         min-height: 0;
       }
 
@@ -741,11 +716,7 @@
           <div class="mini-card"><span class="icon">&#9748;</span><p>Temporadas de lluvia intensas que saturan el drenaje.</p></div>
         </div>
         <div class="center-badge">
-          <p>
-            <strong>Problema del Alcantarillado</strong>
-            <em>En mi ciudad</em>
-            Frontera, Centla, Tabasco
-          </p>
+          <img src="assets/problema-alcantarillado-centro.png" alt="Problema del alcantarillado en mi ciudad, Frontera, Centla, Tabasco" />
         </div>
         <div>
           <div class="tag consecuencias">Consecuencias</div>
