@@ -244,8 +244,8 @@
 
     .diagram {
       display: grid;
-      grid-template-columns: 1fr 164px 1fr;
-      gap: 8px;
+      grid-template-columns: minmax(155px, 1fr) 176px minmax(155px, 1fr);
+      gap: 10px;
       align-items: center;
     }
 
@@ -294,30 +294,43 @@
     }
 
     .center-badge {
-      min-height: 160px;
+      width: 176px;
+      aspect-ratio: 1;
       display: grid;
       place-items: center;
-      padding: 12px;
+      padding: 18px 13px 12px;
       border: 2px solid #1c344b;
       border-radius: 50%;
       text-align: center;
+      overflow: hidden;
       background:
         radial-gradient(circle at 50% 78%, #5eb9d7 0 11%, transparent 12%),
         linear-gradient(#f9fbfb 0 67%, #a6b487 68% 80%, #d2d0c5 81%);
     }
 
+    .center-badge p {
+      width: 100%;
+      margin: 0;
+      color: #123426;
+      font-size: 9px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+
     .center-badge strong {
       display: block;
       color: #173a6a;
-      font-size: 17px;
-      line-height: 1.05;
+      font-size: 15px;
+      line-height: 0.98;
       text-transform: uppercase;
     }
 
     .center-badge em {
       display: block;
       color: #17854d;
-      font-size: 17px;
+      margin: 3px 0 2px;
+      font-size: 15px;
+      line-height: 1;
       font-style: normal;
       font-weight: 900;
       text-transform: uppercase;
@@ -325,8 +338,8 @@
 
     .solutions-strip {
       grid-column: 1 / -1;
-      margin: 8px auto 0;
-      width: 82%;
+      margin: 12px auto 0;
+      width: 100%;
       border: 1px solid #90b882;
       border-radius: 7px;
       overflow: hidden;
@@ -345,19 +358,26 @@
 
     .solutions-items {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .solutions-items div {
       display: grid;
-      grid-template-columns: 30px 1fr;
+      grid-template-columns: 25px minmax(0, 1fr);
       gap: 4px;
       align-items: center;
       min-height: 45px;
-      padding: 6px 10px;
+      padding: 6px 7px;
       border-right: 1px solid #bdd3b8;
-      font-size: 10px;
+      font-size: 9px;
+      line-height: 1.1;
       font-weight: 800;
+      text-align: center;
+    }
+
+    .solutions-items span:last-child {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .solutions-items div:last-child {
@@ -562,7 +582,15 @@
 <body>
   <main class="page">
     <nav class="topbar" aria-label="Navegacion principal">
-      
+      <span>Inicio</span>
+      <span>Problema</span>
+      <span>Diagnostico</span>
+      <span>Tecnologias</span>
+      <span>Soluciones</span>
+      <span>Cronograma</span>
+      <span>Resultados</span>
+      <span>Conclusiones</span>
+      <span>Referencias</span>
     </nav>
 
     <header class="hero">
